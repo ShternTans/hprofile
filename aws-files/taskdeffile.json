@@ -1,9 +1,9 @@
 {
-    "family": "vproappstagetask",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:542970546888:task-definition/vproapp-actions-td:1",
     "containerDefinitions": [
         {
             "name": "vproapp",
-            "image": "716657688884.dkr.ecr.us-east-2.amazonaws.com/actapp:latest",
+            "image": "542970546888.dkr.ecr.us-east-1.amazonaws.com/actions",
             "cpu": 0,
             "portMappings": [
                 {
@@ -24,16 +24,51 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/vproappstagetask",
-                    "awslogs-region": "us-east-2",
+                    "awslogs-group": "/ecs/vproapp-actions-td",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
             }
         }
     ],
-    "executionRoleArn": "arn:aws:iam::716657688884:role/ecsTaskExecutionRole",
+    "family": "vproapp-actions-td",
+    "executionRoleArn": "arn:aws:iam::542970546888:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -43,10 +78,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "tags": [
-        {
-            "key": "Name",
-            "value": "vprofileappstagtaskdef"
-        }
-    ]
+    "registeredAt": "2024-01-30T21:46:25.940Z",
+    "registeredBy": "arn:aws:iam::542970546888:root",
+    "tags": []
 }
